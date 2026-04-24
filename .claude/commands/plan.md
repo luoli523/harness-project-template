@@ -2,7 +2,7 @@
 description: Break an approved spec into a verifiable task list
 ---
 
-Read `.agent/prompts/plan.md` and follow it for the spec file: **$ARGUMENTS**
+Follow the `planning-and-task-breakdown` skill in `.agents/skills/planning-and-task-breakdown/SKILL.md` for the spec file: **$ARGUMENTS**
 
 Key rules:
 - Every task ≤ 100 LOC estimate.

@@ -1,10 +1,15 @@
+---
+name: planning-and-task-breakdown
+description: Breaks an approved spec into ordered, verifiable tasks with acceptance criteria and ≤ 100 LOC diffs each. Use after a spec exists and before writing any implementation code, when scope is larger than a single file change, or when multiple people or agents might work in parallel.
+---
+
 # Planning & Task Breakdown
 
 Turn an approved spec into a sequence of small, verifiable tasks. Each task is something a single agent-human pair can finish, review, and merge independently.
 
 ## When to use
 
-- Spec is approved (see [spec-driven-development](spec-driven-development.md))
+- Spec is approved (see the `spec-driven-development` skill)
 - Scope is larger than a single file change
 - Multiple people/agents might work in parallel
 

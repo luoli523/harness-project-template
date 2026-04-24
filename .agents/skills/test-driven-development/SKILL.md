@@ -1,3 +1,8 @@
+---
+name: test-driven-development
+description: Writes a failing test before the implementation and uses the Prove-It pattern for bug fixes. Use when adding any new business logic, when fixing any bug, or when changing an existing function's behavior.
+---
+
 # Test-Driven Development
 
 Write the test before the code. The test defines "done"; the implementation is whatever is needed to make it pass.
@@ -52,9 +57,9 @@ This guarantees the bug stays fixed and the regression is catchable.
 
 ## FastAPI specifics
 
-- Use `httpx.AsyncClient(app=app)` via `pytest-asyncio` for route tests — faster than `TestClient` and avoids starlette threading quirks.
+- Use `httpx.AsyncClient(transport=ASGITransport(app=app))` via `pytest-asyncio` for route tests — faster than starlette's `TestClient` and consistent with production async behavior.
 - Override dependencies with `app.dependency_overrides[...]` in a fixture; reset in teardown.
-- Don't import `main.app` at module level in tests — use a factory fixture so each test gets a fresh app.
+- Don't import `main.app` at module level in tests — use a factory fixture (`create_app()`) so each test gets a fresh app.
 
 ## Red flags
 
@@ -73,4 +78,4 @@ This guarantees the bug stays fixed and the regression is catchable.
 - [ ] No `skip` / `xfail` without a linked issue
 
 Full upstream version: <https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md>
-Reference patterns: [../references/testing-patterns.md](../references/testing-patterns.md)
+Reference patterns: [../../../docs/references/testing-patterns.md](../../../docs/references/testing-patterns.md)

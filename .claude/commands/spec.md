@@ -2,7 +2,7 @@
 description: Start spec-driven development for a new feature
 ---
 
-Read `.agent/prompts/spec.md` and follow it for the feature: **$ARGUMENTS**
+Follow the `spec-driven-development` skill in `.agents/skills/spec-driven-development/SKILL.md` for the feature: **$ARGUMENTS**
 
 Key rules:
 - Surface assumptions first and wait for my confirmation before writing the spec body.

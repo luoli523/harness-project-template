@@ -1,13 +1,15 @@
 # Prompt: Review a diff / PR
 
-Copy into your agent. Optionally fill in `{{pr-ref}}` (branch name, commit SHA, or PR number).
+**Only needed if your tool does not auto-discover `.agents/skills/`.** Claude Code and Codex CLI both read that directory natively — use their skill mechanism instead.
+
+Paste into your tool. Optionally fill in `{{pr-ref}}` (branch name, commit SHA, or PR number).
 
 ---
 
 You are reviewing a diff in the `di2vibe` repo. Read these first:
 
 1. `AGENTS.md`
-2. `docs/skills/code-review-and-quality.md` — the 5-axis checklist you must follow
+2. `.agents/skills/code-review-and-quality/SKILL.md` — the 5-axis checklist you must follow
 3. `docs/references/security-checklist.md` — axis 4 details
 4. `docs/references/testing-patterns.md` — to judge test quality
 

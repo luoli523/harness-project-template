@@ -5,9 +5,9 @@ End-to-end lifecycle of a pull request in this repo.
 ## 1. Before you open
 
 - [ ] Your branch is rebased on current `main`.
-- [ ] You walked [code-review-and-quality](../skills/code-review-and-quality.md) on your own diff.
+- [ ] You walked the [code-review-and-quality](../../.agents/skills/code-review-and-quality/SKILL.md) skill on your own diff.
 - [ ] All gates green locally: `uv run ruff check . && uv run ruff format --check . && uv run mypy src && uv run pytest`.
-- [ ] Every commit message follows the format in [git-workflow](../skills/git-workflow-and-versioning.md).
+- [ ] Every commit message follows the format in the [git-workflow-and-versioning](../../.agents/skills/git-workflow-and-versioning/SKILL.md) skill.
 - [ ] The PR addresses **one task** from the plan (or a tight cluster — never unrelated tasks).
 
 ## 2. Opening
@@ -26,7 +26,7 @@ Mark as **Draft** if you're still iterating. Don't waste reviewer time on a movi
 ## 3. Review
 
 - Request review from ≥ 1 human. An agent cannot approve.
-- Reviewer walks the [5-axis checklist](../skills/code-review-and-quality.md).
+- Reviewer walks the [5-axis checklist](../../.agents/skills/code-review-and-quality/SKILL.md).
 - Reviewer leaves **actionable** comments (what, why, suggested fix).
 - Author replies to every comment. Resolving a comment means the concern is addressed, not ignored.
 

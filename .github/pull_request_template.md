@@ -1,5 +1,6 @@
 <!--
-Before opening: walk docs/skills/code-review-and-quality.md on your own diff.
+Before opening: follow the `code-review-and-quality` skill on your own diff
+(.agents/skills/code-review-and-quality/SKILL.md).
 Keep this PR ≤ 400 LOC. If bigger, split or justify.
 -->
 

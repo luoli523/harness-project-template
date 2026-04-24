@@ -1,3 +1,8 @@
+---
+name: code-review-and-quality
+description: Walks a diff across five axes — correctness, readability, architecture, security, performance — producing actionable review comments. Use before opening a PR for self-review, when reviewing someone else's PR, or any time a diff is larger than 10 LOC.
+---
+
 # Code Review & Quality
 
 Before opening a PR — and before approving one — walk the diff against five axes. Every finding must be actionable.
@@ -37,7 +42,7 @@ Review in this order. Don't mix axes — one pass per axis keeps feedback clean.
 
 ### 4. Security
 
-Walk the [security checklist](../references/security-checklist.md). Highlights:
+Walk the full [security checklist](../../../docs/references/security-checklist.md). Highlights:
 
 - All user input validated by Pydantic at the route boundary (not raw `dict`).
 - No secrets in code, commits, or logs.

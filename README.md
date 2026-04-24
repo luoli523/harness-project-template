@@ -33,7 +33,7 @@ SPEC  →  PLAN  →  BUILD  →  REVIEW  →  SHIP
 The rules, commands, and skill playbooks live in:
 
 - **[AGENTS.md](AGENTS.md)** — single source of truth. Read this first.
-- **[docs/skills/](docs/skills/)** — workflow playbooks. Read the relevant one before starting work.
+- **[.agents/skills/](.agents/skills/)** — workflow playbooks (Claude Code + Codex auto-discover these).
 - **[docs/references/](docs/references/)** — testing patterns, security checklist.
 - **[docs/workflows/](docs/workflows/)** — PR flow, commit conventions.
 
@@ -42,8 +42,9 @@ The rules, commands, and skill playbooks live in:
 | Tool | Entry point |
 |---|---|
 | **Claude Code** | Slash commands: `/spec`, `/plan`, `/build`, `/review` (defined in `.claude/commands/`) |
-| **Codex / Cursor / other** | Paste prompts from `.agent/prompts/*.md` into your tool |
-| **Human** | Read [AGENTS.md](AGENTS.md), then the relevant `docs/skills/*.md` |
+| **Codex CLI** | `$<skill-name>` to mention, or `/skills` to pick — `.agents/skills/` is auto-discovered |
+| **Cursor / Aider / other** | Open `.agents/skills/<name>/SKILL.md` or paste a prompt from `.agent/prompts/*.md` |
+| **Human** | Read [AGENTS.md](AGENTS.md), then the relevant `.agents/skills/<name>/SKILL.md` |
 
 All tools produce work that must pass the same CI gates — no tool gets to skip the rules.
 
@@ -53,11 +54,11 @@ All tools produce work that must pass the same CI gates — no tool gets to skip
 src/di2vibe/          Application code (installable package)
 tests/                Mirrors src/ layout
 spec/                 Feature specifications (one .md per feature)
+.agents/skills/       Workflow playbooks — the rules (tool-agnostic)
 docs/
-  skills/             Workflow playbooks — the rules
   references/         Testing + security checklists
   workflows/          PR flow, commit conventions
-.agent/prompts/       Tool-agnostic prompts
+.agent/prompts/       Prompts for tools without native skill support
 .claude/              Claude Code config (commands, permissions)
 .github/workflows/    CI pipeline
 ```
@@ -75,4 +76,4 @@ See [docs/workflows/pr-flow.md](docs/workflows/pr-flow.md) for full details.
 
 ## Upstream reference
 
-The skill playbooks in `docs/skills/` are project-adapted condensed versions of [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills). When a project-local skill feels too terse, the upstream full version is linked at the bottom of each file.
+The skill playbooks in `.agents/skills/` are project-adapted condensed versions of [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills). When a project-local skill feels too terse, the upstream full version is linked at the bottom of each SKILL.md.

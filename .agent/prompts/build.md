@@ -1,15 +1,17 @@
 # Prompt: Implement the next task
 
-Copy into your agent and fill in `{{spec-file}}` and `{{task-id}}` (e.g., `spec/orders.md`, `T2`).
+**Only needed if your tool does not auto-discover `.agents/skills/`.** Claude Code and Codex CLI both read that directory natively — use their skill mechanism instead.
+
+Paste into your tool and fill in `{{spec-file}}` and `{{task-id}}` (e.g., `spec/orders.md`, `T2`).
 
 ---
 
 You are working in the `di2vibe` repo. Read these before doing anything:
 
 1. `AGENTS.md`
-2. `docs/skills/incremental-implementation.md` — the process you must follow
-3. `docs/skills/test-driven-development.md` — mandatory for any logic change
-4. `docs/skills/git-workflow-and-versioning.md` — commit message format
+2. `.agents/skills/incremental-implementation/SKILL.md` — the process you must follow
+3. `.agents/skills/test-driven-development/SKILL.md` — mandatory for any logic change
+4. `.agents/skills/git-workflow-and-versioning/SKILL.md` — commit message format
 5. The spec and task list: **{{spec-file}}**
 
 Implement task **{{task-id}}** following the slice loop:

@@ -1,3 +1,8 @@
+---
+name: incremental-implementation
+description: Implements one thin vertical slice at a time — smallest change that leaves the system working, tested, and shippable. Use for every code change in this repo, no matter how small, after a task from the plan is selected.
+---
+
 # Incremental Implementation
 
 Build one thin vertical slice at a time. A slice is the smallest change that leaves the system **working, tested, and shippable**.
@@ -20,7 +25,7 @@ Re-read the task. Re-read the parent section of the spec. Make sure you can reci
 
 ### 2. Write the test first
 
-For new logic, write the failing test before any implementation. See [test-driven-development](test-driven-development.md). The test encodes the acceptance criterion.
+For new logic, write the failing test before any implementation. See the `test-driven-development` skill. The test encodes the acceptance criterion.
 
 For a bug fix, use the **Prove-It pattern**: write a test that reproduces the bug and fails on current `main`. Only then fix it.
 
@@ -42,7 +47,7 @@ All four must pass. If they don't, fix and re-run. Don't commit red.
 
 ### 6. Refactor (optional, but isolated)
 
-If the implementation is ugly, clean it up **now** — while the context is fresh. But do not mix refactor and feature in the same commit. See [git-workflow](git-workflow-and-versioning.md).
+If the implementation is ugly, clean it up **now** — while the context is fresh. But do not mix refactor and feature in the same commit. See the `git-workflow-and-versioning` skill.
 
 ### 7. Commit
 

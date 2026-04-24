@@ -2,7 +2,7 @@
 description: Implement the next task from an approved plan (TDD + small diff)
 ---
 
-Read `.agent/prompts/build.md` and follow it. Target: **$ARGUMENTS** (format: `<spec-file> <task-id>`, e.g. `spec/orders.md T2`).
+Follow the `incremental-implementation` skill in `.agents/skills/incremental-implementation/SKILL.md` — and the `test-driven-development` skill for any logic change. Target: **$ARGUMENTS** (format: `<spec-file> <task-id>`, e.g. `spec/orders.md T2`).
 
 Key rules:
 - Write the failing test first. Show it fail.

@@ -1,3 +1,8 @@
+---
+name: git-workflow-and-versioning
+description: Enforces atomic commits on short-lived feature branches off main, with imperative commit messages that explain why, and rebase-based integration. Use when committing, branching, opening a PR, resolving merges, or structuring the final commit set before push.
+---
+
 # Git Workflow & Versioning
 
 Small, atomic commits on short-lived branches off `main`. Treat each commit as a save-point you might want to revert independently.
@@ -90,4 +95,4 @@ updated order stuff
 - [ ] Pre-commit hooks ran green
 
 Full upstream version: <https://github.com/addyosmani/agent-skills/blob/main/skills/git-workflow-and-versioning/SKILL.md>
-Commit conventions detail: [../workflows/commit-conventions.md](../workflows/commit-conventions.md)
+Commit conventions detail: [../../../docs/workflows/commit-conventions.md](../../../docs/workflows/commit-conventions.md)

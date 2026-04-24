@@ -1,3 +1,8 @@
+---
+name: spec-driven-development
+description: Produces a structured feature specification before any code is written. Use when starting a new feature, when requirements are ambiguous or only exist as a rough idea, when a change will touch multiple modules, or when implementation would take more than ~30 minutes.
+---
+
 # Spec-Driven Development
 
 Write a structured specification before writing any code. The spec is the shared contract between the human and the agent: what we're building, why, and how we'll know it's done.
