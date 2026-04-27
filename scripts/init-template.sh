@@ -14,19 +14,72 @@
 
 set -euo pipefail
 
-NEW_NAME="${1:-}"
 OLD_NAME="di2vibe"
 SELF="scripts/init-template.sh"
 
+usage() {
+  cat <<EOF
+Bootstrap a freshly-cloned harness-project-template repo.
+
+USAGE
+  ./scripts/init-template.sh <new_package_name>
+  ./scripts/init-template.sh -h | --help
+
+ARGUMENTS
+  <new_package_name>   New Python package name to replace the '$OLD_NAME' placeholder.
+                       Must be a valid Python identifier:
+                         - lowercase letters, digits, underscore
+                         - starts with a letter
+                         - matches: ^[a-z][a-z0-9_]*\$
+                       Examples: orders_api, billing, user_service
+
+OPTIONS
+  -h, --help           Show this help and exit.
+
+WHAT IT DOES (in order, idempotent)
+  1. Install 'uv' via the official installer if it is not on PATH.
+  2. Rename the example package src/$OLD_NAME -> src/<new_package_name>
+     and replace every '$OLD_NAME' reference across source, tests,
+     pyproject.toml, uv.lock, and docs (the script itself is excluded).
+  3. Run 'uv sync --all-extras' to install runtime + dev deps.
+  4. Run 'uv run pre-commit install' to register git hooks.
+  5. Run the full gate chain: ruff check, ruff format --check, mypy, pytest.
+
+PRECONDITIONS
+  - Must be invoked from the repository root (the directory containing AGENTS.md).
+  - Internet access (for installing uv if missing, and for 'uv sync').
+
+EXIT CODES
+  0   success
+  2   bad usage (missing or invalid argument, wrong working directory)
+  *   propagated from a failing step (uv install, sync, ruff, mypy, pytest, ...)
+
+EXAMPLES
+  ./scripts/init-template.sh orders_api
+  ./scripts/init-template.sh user_service
+EOF
+}
+
+# Help flags handled before any validation
+case "${1:-}" in
+  -h|--help)
+    usage
+    exit 0
+    ;;
+esac
+
+NEW_NAME="${1:-}"
+
 if [[ -z "$NEW_NAME" ]]; then
-  echo "usage: $0 <new_package_name>" >&2
-  echo "  must be a valid Python identifier (lowercase, [a-z0-9_], starts with letter)" >&2
+  echo "error: missing required argument <new_package_name>" >&2
+  echo "       run with --help for full usage." >&2
   exit 2
 fi
 
 if ! [[ "$NEW_NAME" =~ ^[a-z][a-z0-9_]*$ ]]; then
   echo "error: '$NEW_NAME' is not a valid Python package name" >&2
-  echo "  must be lowercase, start with a letter, and contain only [a-z0-9_]" >&2
+  echo "       must be lowercase, start with a letter, and contain only [a-z0-9_]" >&2
+  echo "       run with --help for full usage." >&2
   exit 2
 fi
 
